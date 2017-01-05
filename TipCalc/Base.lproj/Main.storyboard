@@ -156,7 +156,14 @@
                             <outletCollection property="gestureRecognizers" destination="vcZ-EL-bsO" appends="YES" id="fQY-8F-0pG"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Tipplet" id="P5t-9F-dpd"/>
+                    <navigationItem key="navigationItem" title="Tipplet" id="P5t-9F-dpd">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="r2M-hg-1XW">
+                            <color key="tintColor" red="0.33553639790000001" green="0.63976290319999995" blue="0.6691958442" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="zr7-4K-NKw" kind="push" id="JZV-Yt-rhr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="DDY-JC-pv6" id="UJt-nR-gGT"/>
                         <outlet property="decrementButton" destination="2d3-bR-pYr" id="gBa-Hz-tOF"/>
@@ -175,6 +182,80 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="496" y="321"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="iQp-XV-cJF">
+            <objects>
+                <viewController id="zr7-4K-NKw" customClass="SettingsViewController" customModule="TipCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QMm-4h-a5c"/>
+                        <viewControllerLayoutGuide type="bottom" id="5jf-5c-TXg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bHL-f6-icc" customClass="SettingsViewController">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Tip Percentages" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68O-lz-Mlq">
+                                <rect key="frame" x="20" y="83" width="280" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CU-em-UTZ">
+                                <rect key="frame" x="20" y="122" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7e-TS-ma5">
+                                <rect key="frame" x="20" y="170" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YjX-bX-KVe">
+                                <rect key="frame" x="135" y="118" width="165" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="changeFirstTip:" destination="bHL-f6-icc" eventType="editingDidEnd" id="YcL-Av-a4K"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uX2-lC-tXf">
+                                <rect key="frame" x="135" y="166" width="165" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="changeSecondTip:" destination="bHL-f6-icc" eventType="editingDidEnd" id="6TE-3j-lMp"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Third" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRj-jm-uJB">
+                                <rect key="frame" x="20" y="223" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ggm-gB-JJs">
+                                <rect key="frame" x="135" y="214" width="165" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="changeThirdTip:" destination="bHL-f6-icc" eventType="editingDidEnd" id="mIi-eM-lrh"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <outlet property="firstTextField" destination="YjX-bX-KVe" id="6zW-ys-Uws"/>
+                            <outlet property="secondTextField" destination="uX2-lC-tXf" id="5t6-BO-HJL"/>
+                            <outlet property="thirdTextField" destination="Ggm-gB-JJs" id="KRj-Vs-1zH"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="cZu-N5-SHp" customClass="SettingsViewController"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hk-Mj-7g3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="897" y="321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HMj-m4-ljX">

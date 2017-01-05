@@ -25,6 +25,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.billField.becomeFirstResponder()
+        
+        /*if let firstTipPercent = NSUserDefaults.standardUserDefaults().valueForKey("firstTip") as? Double {
+            tipControl.selectedSegmentIndex = firstTipPercent
+        } else {
+            tipControl.selectedSegmentIndex = 0.15
+        }*/
     }
 
     override func didReceiveMemoryWarning() {
